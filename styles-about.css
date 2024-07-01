@@ -1,0 +1,440 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+    }
+    
+    body {
+        position: relative;
+        height: 100%;
+        background: #ffffff;
+        font-family: 'Urbanist', Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+/* HEADER ABOUT US */
+    .text-box {
+        padding: 20vw; 
+        width: 100%;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 21px;
+        letter-spacing: 3px;
+        text-shadow: #000000;
+        opacity: 0; /* Start with the text hidden */
+        animation: fadeIn 2s ease-in-out forwards; /* Apply the animation */
+    }
+
+    .header {
+        background-image: linear-gradient(rgba(3, 8, 25, 0.7), rgba(2, 5, 16, 0.7)), url('/assets/images/ebheader.jpg');
+        min-height: 100vh;
+        width: 100%;
+        background-position: center; 
+        background-size: cover;
+        position: relative;
+    }
+    
+    /* Keyframes for TEXT BOX ANIMATION */
+    @keyframes fadeIn {
+        from {
+            opacity: 0; 
+        }
+        to {
+            opacity: 1; 
+        }
+    }
+
+    
+/* ABOUT US */
+.container1 {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.vision-section {
+    background-color: #aab5c0;
+    color: #000000;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%; /* Ensure it takes full height of parent */
+}
+
+.vision-section h1 {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.vision-section p {
+    padding: 10px;
+    font-size: 2em;
+    margin-bottom: 50px;
+    font-weight: 500
+}
+
+.vision-section .quote {
+    font-size: 2.2em;
+    font-style: italic;
+    font-weight: bolder
+}
+
+
+.image-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s ease; /* Smooth scale transition */
+}
+
+.image-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -140%;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2)); /* Adjust gradient colors and opacity */
+    transform: skewX(-25deg);
+    z-index: 1;
+    transition: transform 1s ease; /* Smooth shine transition */
+    pointer-events: none; /* Ensure the shine overlay doesn't interfere with hover */
+    opacity: 0; /* Start with no shine visible */
+}
+
+.image-section:hover::before {
+    opacity: 1; /* Show shine on hover */
+    transform: translateX(250%); /* Move shine across the image */
+}
+
+.image-section:hover img {
+    transform: scale(1.15); /* Scale up image on hover */
+}
+
+/* container 2 */
+.container2 {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.mission-section {
+    color: #000000;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100%; /* Ensure it takes full height of parent */
+}
+
+.mission-section h1 {
+    font-size: 3.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.mission-section h2 {
+    font-size: 2em;
+    margin-bottom: 50px;
+}
+
+.mission-section p {
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    text-align: left;
+    margin-left: 50px;
+}
+
+.image2-section {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    order: -1; /* Change the order to place it before the mission-section */
+}
+
+.image2-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out; /* Add transition effect */
+}
+
+.image2-section img:hover {
+    opacity: 0.8; /* Example: reduce opacity on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+    /* NAVIGATION SECTION */
+    
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+        padding: 10px 20px;
+    }
+    
+    .nav .logo img {
+        height: 50px;
+    }
+    
+    .nav .navlist {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .nav .navlist li {
+        margin: 0 15px;
+    }
+    
+    .nav .navlist li a {
+        color: black;
+        text-decoration: none;
+        font-size: 18px;
+    }
+    
+    .nav .nav-icons {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav .nav-icons a {
+        color: black;
+        margin-left: 10px;
+        font-size: 24px;
+        text-decoration: none;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .nav .navlist {
+            display: none;
+        }
+        .nav .navlist.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+        }
+        .nav .navlist li {
+            margin: 10px 0;
+            text-align: center;
+        }
+        .nav .navlist li a {
+            color: white;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .text-box {
+            padding: 4vw;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .text-box {
+            padding: 3vw;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .text-box {
+            padding: 2vw;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .text-box {
+            padding: 1.5vw;
+        }
+    }
+    
+    @media (max-width: 400px) {
+        .text-box {
+            padding: 1vw;
+        }
+    }
+
+
+    
+    /* EB ICONS */
+    .eb-icons {
+        text-align: center;
+        width: 100%;
+        background-color: #000000; 
+        padding: 20px 0; 
+        box-sizing: border-box; 
+    }
+    
+    .icon-container {
+        width: 100%; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+    }
+    
+    .icon-container h2 {
+        color: #fff;
+        font-size: 24px; 
+    
+    }
+    
+    .icon-container img {
+        width: 100%; 
+        max-width: 800px; 
+        height: auto; 
+        display: block; 
+    }
+    
+    /* FOOTER */
+    .footer {
+        background-color: #000;
+        color: #fff;
+        padding: 40px 20px;
+        text-align: center;
+        font-family: 'Urbanist', sans-serif;
+    }
+    
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding-bottom: 20px;
+    }
+    
+    .footer-column {
+        flex: 1;
+        min-width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-column h3 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .footer-column ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .footer-column ul li {
+        margin-bottom: 10px;
+    }
+    
+    .footer-column ul li a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-column ul li a:hover {
+        color: #ccc;
+    }
+    
+    .social-icons {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .social-icons li {
+        margin: 0 10px;
+    }
+    
+    .social-icons li a {
+        font-size: 24px;
+        color: #fff;
+        transition: color 0.3s;
+    }
+    
+    .social-icons li a:hover {
+        color: #ccc;
+    }
+    
+    .footer-icons {
+        margin: 20px 0;
+    }
+    
+    .footer-icons img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .footer-bottom {
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        font-size: 14px;
+    }
+    
+    .footer-bottom a {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    
+    .footer-bottom a:hover {
+        color: #ccc;
+    }
+    
+    
+    
+    /* Responsive adjustments as needed */
+    @media (max-width: 768px) {
+        .description-container {
+            flex-direction: column; /* Stack image on top of text on small screens */
+        }
+    
+        .eb-image {
+            margin-right: 0;
+            margin-bottom: 20px; /* Adjust spacing between image and text on small screens */
+        }
+    }
