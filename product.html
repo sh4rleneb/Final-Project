@@ -243,32 +243,33 @@
     </script>
 
  <!-- JQUERY -->
- <script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
 
- <!--== Script-->
- <script>
-    /*--== filter-link-active ==========*/
-    var selector = '.new-p-heading li';
-    $(selector).on('click',function(){
-        $(selector).removeClass('active')
-        $(this).addClass('active')
+<script>
+    $(document).ready(function(){
+        // Add 'active' class to the clicked filter item
+        $('.new-p-heading li').on('click', function(){
+            $('.new-p-heading li').removeClass('active');
+            $(this).addClass('active');
+
+            const filterValue = $(this).attr('data-filter');
+            
+            // Show or hide products based on the filter value
+            if (filterValue === 'all') {
+                $('.new-product-box').show('1000');
+            } else {
+                $('.new-product-box').each(function(){
+                    if ($(this).hasClass(filterValue)) {
+                        $(this).show('1000');
+                    } else {
+                        $(this).hide('1000');
+                    }
+                });
+            }
+        });
     });
-     
-     / *- box-filter ------* /
-         $(document) .ready(function(){
-             $('.new-p-heading li').click(function(){
-                 const value = $(this).attr('data-filter');
-                 if(value == 'all'){
-                     $('.new-product-box').show('1000');
-                     else{
-                     $('.new-product-box').not('.'+value).hide('1000');
-                     $('.new-product-box').filter('.'+value).show('1000');
-                 }
-
-});
-             });
-
 </script>
+
  
 
 </body>
