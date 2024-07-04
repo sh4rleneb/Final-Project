@@ -57,10 +57,10 @@
              <h3>Products</h3>
              <!-- filter-->
               <ul>
-                <li class="active">All</li>
-                <li>Face</li>
-                <li>Eyes</li>
-                <li>Lips</li>
+                <li class="active" data filter="all">All</li>
+                <li data filter="face">Face</li>
+                <li data filter="eyes">Eyes</li>
+                <li data filter="lips">Lips</li>
             </ul>
         </div>
     </section>
@@ -69,6 +69,7 @@
         <div class="product-grid">
             <div class="pro-container">
                 <div class="pro">
+                    <div class="new-product-box lips">
                     <img src="EB_Matte_Lip_List.jpg" alt="">
                     <div class="des">
                         <h5>EB Matte Lipstick</h5>
@@ -76,10 +77,12 @@
                     <h4>₱175</h4>
                 </div>
             </div>
+            </div>
     
             <!-- Repeat for each product -->
             <div class="pro-container">
                 <div class="pro">
+                    <div class="new-product-box face">
                     <img src="eb concealer.jpg" alt="">
                     <div class="des">
                         <h5>EB Concealer</h5>
@@ -250,6 +253,21 @@
         $(selector).removeClass('active')
         $(this).addClass('active')
     });
+     
+     / *- box-filter ------* /
+         $(document) .ready(function(){
+             $('.new-p-heading li').click(function(){
+                 const value = $(this).attr('data-filter');
+                 if(value == 'all'){
+                     $('.new-product-box').show('1000');
+                     else{
+                     $('.new-product-box').not('.'+value).hide('1000');
+                     $('.new-product-box').filter('.'+value).show('1000');
+                 }
+
+});
+             });
+
 </script>
  
 
